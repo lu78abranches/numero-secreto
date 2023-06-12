@@ -1,5 +1,6 @@
 const elementoChute = document.getElementById('chute');
 
+
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 
@@ -23,3 +24,8 @@ function exibeChuteNaTela(chute) {
         <span class="box">${chute}</span>
     `
 }
+
+recognition.addEventListener('end', () => recognition.start()) //Quando acaba a função liga novamente o reconhecimento e voz até acertar o número secreto
+
+
+
