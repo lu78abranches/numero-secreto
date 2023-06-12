@@ -19,6 +19,8 @@ function validaChute(chute) {
             <h3>O número secreto era ${numeroSecreto}</h3>
             <button id="jogar-novamente" class="btn-jogar">Jogar mais uma vez</button>
         `
+        confetti.start();
+        setTimeout(function () {confetti.stop(); }, 15000);
 
     } else if (numero > numeroSecreto) {
         elementoChute.innerHTML += `
@@ -43,6 +45,8 @@ document.body.addEventListener('click', (e) =>{ //essa função recarrega a pagi
     if(e.target.id == 'jogar-novamente')
     window.location.reload();
 })
+
+
 
 
 
