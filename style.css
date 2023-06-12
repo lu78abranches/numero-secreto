@@ -35,6 +35,11 @@ h3 {
     
 }
 
+h4 {
+    font-size: 1.5em;
+    margin-top: 1em;
+}
+
 .mensagem {
     font-size: 1.6em;
     margin-top: 20px;
