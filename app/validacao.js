@@ -2,8 +2,27 @@ function validaChute(chute) {
     const numero = +chute;
 
     if (chuteForInvalido(numero)) {
-        elementoChute.innerHTML += '<div>Valor inválido</div>'
-        return
+        if (chute.toUpperCase() === "GAME OVER") {
+            document.body.innerHTML =
+                `
+                    <h2>Game Over!!!</h2>
+                    <h4>Fale "Jogar mais uma vez" para continuar jogando</h4>
+                    `
+            document.body.style.backgroundColor = "black";
+            
+
+        }
+        
+        if (chute.toUpperCase() === "JOGAR MAIS UMA VEZ") {
+            window.location.reload();
+        
+        }
+        else {
+            elementoChute.innerHTML += '<div>Valor inválido</div>'
+        }
+
+
+
     }
 
     if (numeroMaiorOuMenorQuePermitido(numero)) {
@@ -17,10 +36,14 @@ function validaChute(chute) {
         document.body.innerHTML = `
             <h2>Você acertou!</h2>
             <h3>O número secreto era ${numeroSecreto}</h3>
-            <button id="jogar-novamente" class="btn-jogar">Jogar mais uma vez</button>
+            <h4 class="jogar-novamente">Fale "Jogar mais uma vez" para continuar jogando</h4>
+            <h4 class="terminar-jogo">Terminar o jogo diga "Game Over"</h4>
         `
         confetti.start();
-        setTimeout(function () {confetti.stop(); }, 15000);
+        setTimeout(function () { confetti.stop(); }, 15000);
+        
+
+
 
     } else if (numero > numeroSecreto) {
         elementoChute.innerHTML += `
@@ -41,13 +64,14 @@ function numeroMaiorOuMenorQuePermitido(numero) {
     return numero > maiorValor || numero < menorValor;
 }
 
-document.body.addEventListener('click', (e) =>{ //essa função recarrega a pagina clicando no botao jogar mais uma vez
-    if(e.target.id == 'jogar-novamente')
-    window.location.reload();
-})
+/*document.body.addEventListener('click', (e) => { //essa função recarrega a pagina clicando no botao jogar mais uma vez
+    if (e.target.id == 'jogar-novamente')
+        window.location.reload();
+})*/
 
 
 
 
 
-    
+
+
