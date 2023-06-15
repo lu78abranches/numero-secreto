@@ -6,7 +6,7 @@ function validaChute(chute) {
 
     if (chuteForInvalido(numero)) {
         
-        if (chute.toUpperCase() === "GAME OVER" || pontos.innerHTML <= 0) {
+        if (chute.toUpperCase() === "GAME OVER" || pontos.innerHTML < 1) {
             document.body.innerHTML =
                 `
                     <h2>Game Over!!!</h2>
