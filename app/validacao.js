@@ -1,6 +1,9 @@
 let pontos = document.getElementById('pontos')
 pontos.innerHTML = 100;
 
+const gameOver = new Audio('sounds/game-over.wav');
+const youWin = new Audio('sounds/you-win.wav');
+
 function validaChute(chute) {
     const numero = +chute;
 
@@ -12,7 +15,9 @@ function validaChute(chute) {
                     <h2>Game Over!!!</h2>
                     <h4>Fale "Jogar mais uma vez" para continuar jogando</h4>
                     `
+            gameOver.play();
             document.body.style.backgroundColor = "black";
+            
             
 
         }
@@ -49,7 +54,7 @@ function validaChute(chute) {
             <h4 class="jogar-novamente">Fale "Jogar mais uma vez" para continuar jogando</h4>
             <h4 class="terminar-jogo">Terminar o jogo diga "Game Over"</h4>
         `
-        
+        youWin.play()
         confetti.start();
         setTimeout(function () { confetti.stop(); }, 15000);
         
@@ -84,6 +89,8 @@ function numeroMaiorOuMenorQuePermitido(numero) {
 })*/
 
 
+  
+ 
 
 
 
